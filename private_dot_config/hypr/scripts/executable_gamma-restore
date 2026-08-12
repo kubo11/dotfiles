@@ -1,0 +1,10 @@
+#!/bin/bash
+
+source "$(dirname "$0")/gamma-common"
+
+if [ -f $GAMMA_CACHE_FILE_PATH ] ; then
+	pkill $GAMMA_FADE_PROC_NAME
+	gamma=$(cat $GAMMA_CACHE_FILE_PATH)
+	hyprctl hyprsunset gamma $gamma >/dev/null 2>&1
+	rm -f $GAMMA_CACHE_FILE_PATH
+fi

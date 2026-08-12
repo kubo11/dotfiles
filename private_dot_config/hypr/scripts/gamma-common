@@ -1,0 +1,7 @@
+#!/bin/sh
+
+MIN_GAMMA=10
+GAMMA_STEP=2
+STEP_DELAY=0.5
+GAMMA_FADE_PROC_NAME="gamma-fade"
+GAMMA_CACHE_FILE_PATH="/tmp/gamma-cache"

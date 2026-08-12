@@ -1,0 +1,178 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "spacing": 6,
+
+    "modules-left": [
+        "custom/menu",
+        "hyprland/workspaces",
+        "hyprland/window",
+	"mpris"
+    ],
+
+    "modules-center": [
+	"clock"
+    ],
+
+    "modules-right": [
+	"cpu",
+	"memory",
+	"temperature",
+	"disk",
+        "network",
+        "bluetooth",
+        "pulseaudio",
+	"hyprland/language",
+        "idle_inhibitor",
+        "custom/updates",
+	"battery",
+	"tray"
+    ],
+
+    "custom/menu": {
+        "format": "\u03bb",
+	"tooltip": false,
+	"on-click": "rofi -show drun"
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+	"all-outputs": true,
+	"format": "{name}"
+    },
+
+    "hyprland/window": {
+        "format": "{}",
+	"max-length": 40,
+	"separate-outputs": true,
+        "rewrite": {
+            "(.*) — LibreWolf": "LibreWolf",
+	    "(.*) - mpv": "mpv"
+	}
+    },
+
+    "clock": {
+    	"interval": 1,
+	"format": "{:%d %B %H:%M}",
+	"tooltip-format": "<big>{:%Y-%m-%d}</big>\n<tt>{calendar}</tt>"
+    },
+
+    "mpris": {
+        "format": "{player_icon} {status_icon} {dynamic}",
+	"dynamic-len": 45,
+	"dynamic-order": ["title", "position", "length"],
+	"interval": 1,
+	"status-icons": {
+	    "playing": "\uf04b",
+	    "paused": "\uf04c"
+	},
+	"player-icons": {
+	    "spotify": "\uf1bc",
+	    "librewolf": "\udb80\ude39",
+	    "mpv": "\uf36e",
+	    "default": "\uf001"
+	},
+	"tooltip": false,
+	"on-click": "playerctl play-pause",
+	"on-click-middle": "",
+	"on-click-right": ""
+    },
+
+    "cpu": {
+    	"format": "\uf4bc {usage}%",
+	"tooltip": true,
+	"justify": "center"
+    },
+
+    "memory": {
+	"format": "\uefc5 {}%"
+    },
+
+    "temperature": {
+    	"critical-threshold": 85,
+	"format": "\uf2c7 {temperatureC}\u2103"
+    },
+
+    "disk": {
+	"path": "/",
+	"format": "\uf0c7 {percentage_used}%"
+    },
+
+    "network": {
+        //"format-wifi": "\uf1eb \uf063{bandwidthDownBytes} \uf062{bandwidthUpBytes}",
+	"format-wifi": "\uf1eb ",
+	//"format-ethernet": "\udb80\ude00 \uf063{bandwidthDownBytes} \uf062{bandwidthUpBytes}",
+	"format-ethernet": "\udb80\ude00",
+	"format-disconnected": "Offline",
+	"tooltip-format": "{essid} - {ipaddr}",
+        "interval": 1
+    },
+
+    "pulseaudio": {
+	"format": "{icon} {volume}%",
+	"format-muted": "{icon} {volume}%",
+	"format-icons": {
+            "default": [
+                "\uf026",
+		"\uf027",
+		"\uf028"
+    ],
+	    "default-muted": "\ueee8"
+	},
+	"on-click": "pavucontrol",
+	"tooltip": false
+    },
+
+    "bluetooth": {
+        "format": "\uf294",
+	"format-disabled": "\udb80\udcb2",
+	"tooltip-format": "{device_alias}"
+    },
+
+    "hyprland/language": {
+        "format": "\uf11c {}",
+	"format-en": "EN",
+	"format-pl": "PL"
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+	"format-icons": {
+            "activated": "\uec15",
+	    "deactivated": "\udb81\udcb2"
+	},
+	"tooltip": false
+    },
+
+    "custom/updates": {
+        "format": "\uf03f {}",
+	"exec": "checkupdates 2>/dev/null | wc -l",
+	"interval": 600,
+	"tooltip": false
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+	    "critical": 15
+	},
+	"format": "{icon} {capacity}%",
+	"format-icons": [
+            "\udb80\udc7a",
+	    "\udb80\udc7b",
+	    "\udb80\udc7c",
+	    "\udb80\udc7d",
+	    "\udb80\udc7e",
+	    "\udb80\udc7f",
+	    "\udb80\udc80",
+	    "\udb80\udc81",
+	    "\udb80\udc82",
+	    "\udb80\udc79"
+	]
+    },
+
+    "tray": {
+        "spacing": 10
+    }
+}

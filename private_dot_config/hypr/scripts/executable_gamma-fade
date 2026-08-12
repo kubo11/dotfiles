@@ -1,0 +1,22 @@
+#!/bin/sh
+
+source "$(dirname "$0")/gamma-common"
+
+if [ -f $GAMMA_CACHE_FILE_PATH ] ; then
+	exit 0
+fi
+
+handle_sigint() {
+	exit 1
+}
+
+trap handle_sigint SIGINT
+
+gamma=$(hyprctl hyprsunset gamma)
+echo $gamma >$GAMMA_CACHE_FILE_PATH
+
+while awk "BEGIN {exit !($gamma > $MIN_GAMMA)}" ; do
+	gamma=$(echo "$gamma $GAMMA_STEP" | awk '{print $1 - $2}')
+	hyprctl hyprsunset gamma -${GAMMA_STEP} >/dev/null 2>&1
+	sleep $STEP_DELAY
+done

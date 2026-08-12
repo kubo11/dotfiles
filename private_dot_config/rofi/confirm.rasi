@@ -1,0 +1,84 @@
+@theme "/dev/null"
+
+* {
+    font: "JetBrainsMono Nerd Font 13";
+
+    bg:       #2E3440;
+    bg-alt:   #3B4252;
+    border:   #4C566A;
+    fg:       #D8DEE9;
+    fg-alt:   #ECEFF4;
+    accent:   #88C0D0;
+}
+
+window {
+    width: 320px;
+    location: center;
+    anchor: center;
+
+    background-color: @bg;
+    border: 2px;
+    border-color: @border;
+    border-radius: 0px;
+
+    padding: 12px;
+}
+
+mainbox {
+    background-color: transparent;
+    spacing: 10px;
+}
+
+inputbar {
+    enabled: false;
+}
+
+message {
+    enabled: true;
+    background-color: transparent;
+    text-color: @fg-alt;
+    padding: 0px 0px 10px 0px;
+}
+
+textbox {
+    background-color: transparent;
+    text-color: @fg-alt;
+    horizontal-align: 0.5;
+}
+
+listview {
+    columns: 2;
+    lines: 1;
+    spacing: 8px;
+    fixed-height: false;
+    scrollbar: false;
+    background-color: transparent;
+}
+
+element {
+    background-color: @bg-alt;
+    text-color: @fg;
+    border-radius: 0px;
+    padding: 10px;
+}
+
+element normal.normal {
+    background-color: @bg-alt;
+    text-color: @fg;
+}
+
+element selected.normal {
+    background-color: @accent;
+    text-color: @bg;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+}
+
+element-icon {
+    enabled: false;
+}

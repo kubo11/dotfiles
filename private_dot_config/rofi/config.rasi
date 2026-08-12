@@ -1,0 +1,34 @@
+configuration {
+    modi: "drun";
+    show-icons: true;
+
+    display-drun: "Apps";
+    display-run: "Run";
+    display-window: "Windows";
+
+    drun-display-format: "{icon} {name}";
+    hover-select: true;
+
+    matching: "fuzzy";
+    sorting-method: "fzf";
+
+    case-sensitive: false;
+    cycle: true;
+
+    disable-history: false;
+
+    sidebar-mode: true;
+
+    font: "JetBrainsMono Nerd Font 13";
+
+    icon-theme: "Papirus-Dark";
+
+    terminal: "ghostty";
+
+    kb-row-up: "Up,Control+k";
+    kb-row-down: "Down,Control+j";
+    kb-accept-entry: "Return,KP_Enter";
+    kb-remove-to-eol: "Control+Shift+e";
+}
+
+@theme "~/.config/rofi/theme.rasi"

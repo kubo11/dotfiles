@@ -1,0 +1,14 @@
+[Unit]
+Description=Watch Waybar config files and reload on changes
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.config/waybar/waybar-config-watcher.sh
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=default.target
+
