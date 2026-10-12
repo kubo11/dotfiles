@@ -3,12 +3,31 @@
 ------------------
 
 hl.monitor({
-    output   = "HDMI-1",
-    mode     = "3840x2160@240",
-    position = "0x0",
+    output   = "eDP-1",
+    mode     = "1920x1080@60",
+--    position = "0x0",
+    scale    = 1.0,
+--    bitdepth = 10,
+--    cm       = "hdr",
+})
+
+hl.monitor({
+    output   = "DP-3",
+    mode     = "2560x1440@60",
+    scale    = 1.0,
+--    bitdepth = 10,
+--    cm       = "hdr",
+})
+
+hl.monitor({
+    output   = "DP-4",
+    mode     = "3840x2160@120",
+--    position = "0x0",
     scale    = 1.5,
-    bitdepth = 10,
-    cm = "hdr",
+--    bitdepth = 10,
+--    cm       = "hdr",
+--    sdrbrightness = 1.2,
+--    sdrsaturation = 0.98,
 })
 
 -- hl.monitor({
@@ -169,6 +188,7 @@ hl.animation({ leaf = "workspaces",    enabled = true,  speed = 1.94, bezier = "
 hl.animation({ leaf = "workspacesIn",  enabled = true,  speed = 1.21, bezier = "almostLinear", style = "fade" })
 hl.animation({ leaf = "workspacesOut", enabled = true,  speed = 1.94, bezier = "almostLinear", style = "fade" })
 hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "quick" })
+hl.animation({ leaf = "monitorAdded",  enabled = false })
 
 -- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 -- "Smart gaps" / "No gaps when only"
@@ -215,6 +235,8 @@ hl.config({
         force_default_wallpaper  = 0,
         disable_hyprland_logo    = true,
 	disable_splash_rendering = true,
+	mouse_move_enables_dpms  = true,
+        key_press_enables_dpms   = true,
     },
 })
 

@@ -37,7 +37,7 @@ chosen=$(printf "%s\n%s\n%s\n%s\n%s\n%s" \
 
 case "$chosen" in
     "$lock")
-        pidof hyprlock >/dev/null || hyprlock
+	 loginctl lock-session && sleep 1 && hyprctl dispatch 'hl.dsp.dpms({action="off"})'
         ;;
 
     "$logout")
